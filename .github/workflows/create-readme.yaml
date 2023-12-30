@@ -1,0 +1,24 @@
+name: Index Update
+
+on:
+  pull_request:
+    types:
+      - "closed"
+  workflow_dispatch: {}
+
+jobs:
+  start:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: pnpm
+      - run: pnpm i
+      - run: npm run build
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: 'chore: update index'
