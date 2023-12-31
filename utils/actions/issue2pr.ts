@@ -59,9 +59,6 @@ const action:Action = async (github, ctx, core) => {
         const exists = pulls.find(
           i => i.user?.login === 'github-actions[bot]' && i.title.startsWith(`#${no} `),
         )
-        if (exists){
-            core.info(`---Pr Exists---`);
-        }
         
         const dir = `challenges/${no}-${info.title.replace(/\ /gim,'-')}`
         const description = getDescription(body);
