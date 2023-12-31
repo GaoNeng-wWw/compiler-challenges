@@ -64,7 +64,9 @@ const action:Action = async (github, ctx, core) => {
         }
         
         const dir = `challenges/${no}-${info.title.replace(/\ /gim,'-')}`
+        const description = getDescription(body);
         const files = {
+            [`${dir}/README.md`]: description,
             [`${dir}/template.ts`]: template,
             [`${dir}/__tests__/judge.test.ts`]: Judge
         };
@@ -117,7 +119,7 @@ const action:Action = async (github, ctx, core) => {
 }
 const getCodeBlock = (title: string, lang: 'typescript' | 'yaml', content: string) => {
     const reg = new RegExp(
-        `## ${title}[\s\S]*?\`\`\`${lang}[\s\S]*?\`\`\``
+        `## ${title}[\\s\\S]*?\`\`\`${lang}([\\s\\S]*?)\`\`\``
     )
     const match = content.match(reg);
     if (match && match[1]){
@@ -149,5 +151,7 @@ async function updateComment(github: Github, ctx: Context, body: string){
         body
     })
 }
-
+const getDescription = (content:string) => {
+    return content.match(/<!-- Description start -->([\s\S]*)<!-- Description End -->/gim)?.[0] ?? ''
+}
 export default action;

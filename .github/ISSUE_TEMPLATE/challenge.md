@@ -16,7 +16,9 @@ title: Visit Node
 
 ## Challenge Description
 
+<!-- Description start -->
 Implment a function `visit(root:Sourcefile): number[]`. This function should visit all node (dfs or bfs) and return all node kinds
+<!-- Description End -->
 
 ## Template
 
