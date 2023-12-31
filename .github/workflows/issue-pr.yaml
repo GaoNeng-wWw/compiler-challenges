@@ -12,4 +12,4 @@ jobs:
         with:
           node-version: 16.x
       - run: npm install
-      - run: cd utils/actions && npx esno ./loader ${{secrets.TOKEN}} issue2pr
+      - run: cd utils/actions && npx esno ./loader ${{github.TOKEN}} issue2pr
