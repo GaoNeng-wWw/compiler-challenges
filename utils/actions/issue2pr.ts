@@ -117,7 +117,7 @@ const action:Action = async (github, ctx, core) => {
 }
 const getCodeBlock = (title: string, lang: 'typescript' | 'yaml', content: string) => {
     const reg = new RegExp(
-        `## ${title} Info[\s\S]*?\`\`\`${lang}[\s\S]*?\`\`\``
+        `## ${title}[\s\S]*?\`\`\`${lang}[\s\S]*?\`\`\``
     )
     const match = content.match(reg);
     if (match && match[1]){
