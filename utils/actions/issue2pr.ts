@@ -61,7 +61,7 @@ const action:Action = async (github, ctx, core) => {
         )
         
         const dir = `challenges/${no}-${info.title.replace(/\ /gim,'-')}`
-        const description = getDescription(body);
+        const description = ['---',yaml,'---', '', getDescription(body)].join('\n')
         const files = {
             [`${dir}/README.md`]: description,
             [`${dir}/template.ts`]: template,
@@ -149,6 +149,6 @@ async function updateComment(github: Github, ctx: Context, body: string){
     })
 }
 const getDescription = (content:string) => {
-    return content.match(/<!-- Description start -->([\s\S]*)<!-- Description End -->/gim)?.[0] ?? ''
+    return content.match(/<!-- Description start -->([\s\S]*)<!-- Description End -->/gim)?.[0].trim() ?? ''
 }
 export default action;

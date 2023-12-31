@@ -2,7 +2,7 @@
 name: Challenge
 about: Initiate a new challenge
 title: ""
-label: challenge
+labels: challenge
 ---
 
 ## Challenge Info
