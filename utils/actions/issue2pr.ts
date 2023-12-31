@@ -8,9 +8,11 @@ const action:Action = async (github, ctx, core) => {
     const issue = payload.issue;
     const no = ctx.issue.number;
     if (!issue){
+        core.info('--- Not find any issue ---')
         return;
     }
     const labels: string[] = (issue['lables'] || []).map((i:any) => i && i.name).filter(Boolean);
+    core.info(`--- Issue ${no} ${labels.join} ---`)
     if (labels.includes('challenge')){
         const body = issue.body || '';
         const yaml = getCodeBlock('Challenge Info', 'yaml', body);
