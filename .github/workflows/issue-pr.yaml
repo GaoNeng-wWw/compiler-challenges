@@ -3,7 +3,6 @@ name: Generate Pull Request from Issue
 on:
   issues:
     types: [opened, edited]
-permissions: write-all
 jobs:
   start:
     runs-on: ubuntu-latest
@@ -13,4 +12,4 @@ jobs:
         with:
           node-version: 16.x
       - run: npm install
-      - run: cd utils/actions && npx esno ./loader ${{github.token}} issue2pr
+      - run: cd utils/actions && npx esno ./loader ${{secrets.GITHUB_TOKEN}} issue2pr
