@@ -3,6 +3,7 @@ name: Generate Pull Request from Issue
 on:
   issues:
     types: [opened, edited]
+permissions: write-all
 jobs:
   start:
     runs-on: ubuntu-latest
