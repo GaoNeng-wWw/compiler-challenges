@@ -12,7 +12,7 @@ const action:Action = async (github, ctx, core) => {
         return;
     }
     const labels: string[] = (issue['lables'] || []).map((i:any) => i && i.name).filter(Boolean);
-    core.info(`--- Issue ${no} ${labels.join} ---`)
+    core.info(`--- Issue ${no} ${labels.join(',')} ---`)
     if (labels.includes('challenge')){
         const body = issue.body || '';
         const yaml = getCodeBlock('Challenge Info', 'yaml', body);
@@ -104,6 +104,9 @@ const action:Action = async (github, ctx, core) => {
         if (pr){
             await updateComment(github,ctx, createBody(pr.number));
         }
+    } else {
+        core.info(`--- Issue ${no} labels not includes challenge ---`)
+        core.info(`--- Issue ${no} labels not includes challenge ${labels.join()} ---`)
     }
 }
 const getCodeBlock = (title: string, lang: 'typescript' | 'yaml', content: string) => {
