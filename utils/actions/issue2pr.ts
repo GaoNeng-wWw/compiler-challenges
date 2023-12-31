@@ -138,3 +138,5 @@ async function updateComment(github: Github, ctx: Context, body: string){
         body
     })
 }
+
+export default action;
