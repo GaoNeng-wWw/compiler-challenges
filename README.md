@@ -26,6 +26,12 @@ In daily life, we may often come into contact with ts compiler. Eg. (constant fo
 </a>
                 
 
+
+<a href="./challenges/5-constant-folding/README.md">
+    <img src="https://img.shields.io/badge/5 constant folding-008b10" />
+</a>
+                
+
 ## Medium
 
 not ready yet
