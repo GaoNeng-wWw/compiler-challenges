@@ -10,7 +10,7 @@ labels: challenge
 Basic info for your new challenge
 
 ```yaml
-level: warn # warn | easy | medium | hard | hell
+level: warn # warm | easy | medium | hard | hell
 title: Visit Node
 ```
 
