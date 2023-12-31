@@ -1,12 +1,9 @@
 import { readFileSync, readdirSync, writeFileSync } from 'fs';
 import {resolve,join, sep} from 'path';
-const root = resolve('./challages')
+import { Levels } from './types';
+const root = resolve('./challenges')
 const mdFiles = readdirSync(root).map((v) => join(root, v, 'README.md'));
-export type Levels = 'warm'
-| 'easy'
-| 'medium'
-| 'hard'
-| 'hell'
+
 interface Meta {
     title: string,
     level: Levels,
@@ -81,7 +78,7 @@ function createIndex(metas: Meta[]){
 function createBadage(indexes: Index){
     const bigCamlCase = (word:string) => `${word[0]?.toUpperCase()}${word.slice(1)}`
     const mdContents = [
-        '# Compiler Challages',
+        '# Compiler Challenges',
         '## Description',
         `In daily life, we may often come into contact with ts compiler. Eg. (constant folding, node find, dependency tracking). This project aims to help you better ~~play with the compiler~~ using compilers to tackle unknown challenges in the future'`
     ];
@@ -90,7 +87,11 @@ function createBadage(indexes: Index){
         const urls = [];
         for (const child of children){
             urls.push(
-                `<img src="https://img.shields.io/badge/${child.title.replace(/\-/gim, ' ')}-${color}" />`
+                `
+<a href="./challenges/${child.title}/README.md">
+    <img src="https://img.shields.io/badge/${child.title.replace(/\-/gim, ' ')}-${color}" />
+</a>
+                `
             )
         }
         if (urls.length===0){

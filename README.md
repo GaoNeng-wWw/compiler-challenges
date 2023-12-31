@@ -1,4 +1,4 @@
-# Compiler Challages
+# Compiler Challenges
 
 ## Description
 
@@ -6,13 +6,25 @@ In daily life, we may often come into contact with ts compiler. Eg. (constant fo
 
 ## Warm
 
-<img src="https://img.shields.io/badge/01 visit nodes-008385" />
+
+<a href="./challenges/01-visit-nodes/README.md">
+    <img src="https://img.shields.io/badge/01 visit nodes-008385" />
+</a>
+                
 
 ## Easy
 
-<img src="https://img.shields.io/badge/02 find nodes by fn-008b10" />
 
-<img src="https://img.shields.io/badge/03 calc-008b10" />
+<a href="./challenges/02-find-nodes-by-fn/README.md">
+    <img src="https://img.shields.io/badge/02 find nodes by fn-008b10" />
+</a>
+                
+
+
+<a href="./challenges/03-calc/README.md">
+    <img src="https://img.shields.io/badge/03 calc-008b10" />
+</a>
+                
 
 ## Medium
 

@@ -1,0 +1,15 @@
+name: Generate Pull Request from Issue
+
+on:
+  issues:
+    types: [opened, edited]
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: npm install
+      - run: cd utils/actions && npx esno ./loader ${secrets.TOKEN} issue2pr
