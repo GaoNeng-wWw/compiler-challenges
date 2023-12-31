@@ -18,6 +18,12 @@ const action:Action = async (github, ctx, core) => {
         const yaml = getCodeBlock('Challenge Info', 'yaml', body);
         const template = getCodeBlock('Template', 'typescript', body);
         const Judge = getCodeBlock('Judge', 'typescript', body);
+        core.info('--- Yaml ---')
+        core.info(yaml ?? '')
+        core.info('--- Template ---')
+        core.info(template ?? '')
+        core.info('--- Judge ---')
+        core.info(Judge ?? '')
         let info;
         try {
             info = Yaml.parse(yaml ?? '');
