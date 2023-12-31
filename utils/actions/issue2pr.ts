@@ -11,7 +11,7 @@ const action:Action = async (github, ctx, core) => {
         core.info('--- Not find any issue ---')
         return;
     }
-    const labels: string[] = (issue['lables'] || []).map((i:any) => i && i.name).filter(Boolean);
+    const labels: string[] = (issue['labels'] || []).map((i:any) => i && i.name).filter(Boolean);
     core.info(`--- Issue ${no} ${labels.join(',')} ---`)
     if (labels.includes('challenge')){
         const body = issue.body || '';
